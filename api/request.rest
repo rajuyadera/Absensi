@@ -1,0 +1,55 @@
+GET  http://localhost:5000/admin
+###
+GET  http://localhost:5000/admin/1
+###
+POST   http://localhost:5000/admin
+Content-Type: application/json
+
+{
+    "name": "Raju Yadera",
+    "username": "admin",
+    "password": "1234",
+    "confPassword": "1234"
+}
+
+###
+PATCH 
+
+###
+DELETE http://localhost:5000/admin/4
+
+
+
+###
+GET http://localhost:5000/siswa
+###
+GET http://localhost:5000/admin/1
+
+
+
+###
+POST http://localhost:5000/siswa
+Content-Type: application/json
+
+{
+    "nama": "Meida Nur Afifah"
+}
+
+
+
+
+
+
+###
+GET http://localhost:5000/absen
+###
+GET http://localhost:5000/absen/4
+###
+POST http://localhost:5000/absen
+Content-Type: application/json
+
+{
+    "id_siswa": 14,
+    "keterangan": "Sakit",
+    "tanggal": "2022-11-28T13:20:34.000Z"
+}

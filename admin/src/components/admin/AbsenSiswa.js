@@ -4,8 +4,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AbsenSiswa = () => {
-  const [siswa, setSiswas] = useState([]);
-  const [nama, setNama] = useState([]);
+  const [getSiswa, setGetSiswa] = useState([]);
+  const [siswa, setSiswa] = useState("");
   const [keterangan, setKeterangan] = useState("");
   const [tanggal, setTanggal] = useState("");
   const [msg, setMsg] = useState("");
@@ -16,14 +16,14 @@ const AbsenSiswa = () => {
 
   const getSiswas = async () => {
     const response = await axios.get("http://localhost:5000/siswas");
-    setSiswas(response.data);
+    setGetSiswa(response.data);
   };
   const Absen = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post("http://localhost:5000/absen", {
-        id_siswa: nama,
+        id_siswa: siswa,
         keterangan: keterangan,
         tanggal: tanggal, 
       });
@@ -75,12 +75,12 @@ const AbsenSiswa = () => {
                               <select
                                 class="form-select text-center"
                                 id="exampleFormControlSelect1"
-                                value={nama}
-                                onChange={(e) => setNama(e.target.value)}
+                                value={siswa}
+                                onChange={(e) => setSiswa(e.target.value)}
                               >
                                 <option selected>-- PILIH SISWA --</option>
-                                {siswa.map((list) => (
-                                  <option>{list.nama}</option>
+                                {getSiswa.map((list) => (
+                                  <option value={list.id_siswa}>{list.nama}</option>
                                 ))}
                               </select>
                             </div>

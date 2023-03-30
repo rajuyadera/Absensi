@@ -5,6 +5,14 @@ import Siswa from "./Siswa.js";
 const {DataTypes} = Sequelize
 
 const Absen = db.define('tbl_absensi', {
+
+    id_siswa: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate:{
+            notEmpty: true
+        }
+    },
     keterangan: {
         type: DataTypes.STRING,
         allowNull: true,
@@ -24,9 +32,12 @@ const Absen = db.define('tbl_absensi', {
 })
 
 
-Siswa.hasMany(Absen);
-Absen.belongsTo(Siswa, {
+Siswa.hasMany(Absen, {
     foreignKey: 'id_siswa'
+});
+Absen.belongsTo(Siswa, {
+    foreignKey: 'id_siswa',
+    as: "siswa"
 })
 
 

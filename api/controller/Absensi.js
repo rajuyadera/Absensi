@@ -5,7 +5,10 @@ import Siswa from "../model/Siswa.js";
 export const getAbsen = async(req,res) => {
     try {
         const response  = await Absen.findAll({
-
+          include: {
+            model: Siswa,
+            as: "siswa"
+          }
         })
         return res.status(200).json(response)
     } catch (error) {
@@ -27,10 +30,10 @@ export const getAbsenById = async(req,res) => {
 }
 
 export const createAbsen = async(req,res) => {
-    const {nama, keterangan, tanggal} = req.body;
-    try {
+    const {id_siswa, keterangan, tanggal} = req.body;
+    try { 
         await Absen.create({
-            id_siswa: nama,
+            id_siswa: id_siswa,
             keterangan: keterangan,
             tanggal: tanggal
         })

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate, Link } from "react-router-dom";
+import moment from "moment"
 
 const Dashboard = () => {
   const [siswas, setSiswas] = useState([]);
@@ -274,7 +274,7 @@ const Dashboard = () => {
                             <td>
                               <div class="d-flex px-2 py-1">
                                 <div class="d-flex flex-column justify-content-center">
-                                  <p class="mb-0 text-sm">{absen.id_siswa}</p>
+                                  <p class="mb-0 text-sm">{absen.siswa?.nama}</p>
                                 </div>
                               </div>
                             </td>
@@ -285,7 +285,7 @@ const Dashboard = () => {
                             </td>
                             <td class="align-middle text-center text-sm">
                               <span class="badge badge-sm bg-gradient-success">
-                                {absen.tanggal}
+                                {moment(absen.tanggal).format("DD/MM/YYYY")}
                               </span>
                             </td>
                             <td class="align-middle">

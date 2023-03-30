@@ -15,7 +15,7 @@ try {
 }
 
 // (async()=>{
-//     await db.sync()
+//     await db.sync({alter: true})
 // })();
 
 app.use(cors())

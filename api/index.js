@@ -7,12 +7,12 @@ import SiswaRoutes from "./routes/SiswaRoutes.js"
 import AbsenRoutes from "./routes/AbsenRoutes.js"
 import AuthRoutes from "./routes/AuthRoutes.js"
 
-// try {
-//     db.authenticate()
-//     console.log("database connected")
-// } catch (error) {
-//     console.error(error)
-// }
+try {
+    db.authenticate()
+    console.log("database connected")
+} catch (error) {
+    console.error(error)
+}
 
 // (async()=>{
 //     await db.sync()

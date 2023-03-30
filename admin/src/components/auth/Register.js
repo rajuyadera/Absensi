@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {useNavigate} from "react-router-dom"
 
 const Register = () => {
 
@@ -9,6 +10,7 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
+  const navigate = useNavigate()
 
   const Register = async (e) => {
     e.preventDefault();
@@ -30,6 +32,11 @@ const Register = () => {
         progress: undefined,
         theme: "dark",
       });
+
+      setTimeout(() => {
+        navigate("/")
+      }, 3000)
+
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.msg);

@@ -13,10 +13,10 @@ Content-Type: application/json
 }
 
 ###
-PATCH 
+GET http://localhost:5000/admin
 
 ###
-DELETE http://localhost:5000/admin/4
+DELETE http://localhost:5000/admin/7
 
 
 
@@ -51,5 +51,5 @@ Content-Type: application/json
 {
     "id_siswa": 14,
     "keterangan": "Sakit",
-    "tanggal": "2022-11-28T13:20:34.000Z"
+    "tanggal": "03/30/2023"
 }
